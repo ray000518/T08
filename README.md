@@ -1,3 +1,2 @@
 # T08
-
-https://cdn.discordapp.com/attachments/1180479125291540521/1458092647049859243/AG60hOpXUX90c05QMwzqWzgrl4sIMXSr7SqU7s854kvrQUMhAZi9Ax3PGDP1H4ZkjkleqmEt2sMvQTgR8TQLKOq-qskmk_F6E71lWZrCwB2EX1mLOZJIv7nn_rTC45_DzfDcmGHtKch9s9NHzt67d8FVUZZM0_7DjQw2752-d-h1536.png?ex=695e6219&is=695d1099&hm=9e7ee86df63c1f8ef76946088e91a54dbd8f46f6d32456ee717afbf1a2cb38b4&
+<img width="2752" height="1536" alt="image" src="https://github.com/user-attachments/assets/2f12f9f9-eaa1-4277-9de0-fb34adb81315" />
