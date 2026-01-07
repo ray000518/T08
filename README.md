@@ -15,3 +15,231 @@
 進度更新與調度 (Update)：利用 report_edit.php 進行污染處理進度的更新與相關資源的調度管理。
 資料移除 (Delete)：實作 report_delete.php 以執行移除不再需要的資料紀錄。
 <img width="2752" height="1536" alt="image" src="https://github.com/user-attachments/assets/2f12f9f9-eaa1-4277-9de0-fb34adb81315" />
+[show.html](https://github.com/user-attachments/files/24469323/show.html)
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>整合式海洋智慧監控與決策平台</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        /* 自定義樣式：確保圖片在卡片中完整顯示 */
+        .feature-img-container {
+            width: 100%;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: #f8f9fa;
+            border-bottom: 1px solid #dee2e6;
+        }
+        .feature-img-container img {
+            max-width: 100%;
+            height: auto;
+            object-fit: contain; 
+        }
+        
+        /* 新增：CRUD 截圖的專用樣式，確保高度一致性 */
+        .crud-img-wrapper {
+            height: 150px; /* 您可以依據截圖實際比例調整此高度 */
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 15px;
+            background-color: #f1f1f1;
+            border-radius: 4px;
+        }
+        .crud-img-wrapper img {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: cover; /* 如果要顯示全圖改成 contain */
+        }
+    </style>
+</head>
+<body>
+
+    <header class="bg-primary text-white text-center py-5">
+        <div class="container">
+            <h1 class="display-4 fw-bold">整合式海洋智慧監控與決策平台</h1>
+            <p class="lead mb-4">Integrated Marine Intelligence Platform</p>
+            <p class="mb-4">守護蔚藍，智慧決策 —— 結合模擬 AI 識別與 CRUD 管理的海洋污染解決方案。</p>
+            <a href="https://github.com/ray000518/T08" class="btn btn-light btn-lg mt-3" target="_blank">
+                <i class="bi bi-github"></i> 前往 GitHub 專案
+            </a>
+        </div>
+    </header>
+
+    <section id="about" class="py-5">
+        <div class="container">
+            <h2 class="text-center mb-4">專案介紹</h2>
+            <div class="row">
+                <div class="col-lg-8 mx-auto text-center">
+                    <p class="text-muted fs-5">
+                        隨著海洋廢棄物與油汙洩漏威脅日益嚴重，傳統的人工通報模式效率低落。
+                        本專案開發了一套基於 Web 架構的監控平台，透過 <strong>PHP</strong> 與 <strong>MySQL</strong> 技術，
+                        我們實現了從「影像上傳」、「模擬 AI 辨識」到「資源調度」的全面數位化，
+                        讓管理者能透過上帝視角（God's View）即時掌握污染熱點。
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="visuals" class="bg-light py-5">
+        <div class="container">
+            <div class="row text-center">
+                
+                <div class="col-md-6 mb-4">
+                    <div class="card shadow-sm h-100">
+                        <div class="card-header bg-white fw-bold">系統開發與實施流程</div>
+                        <div class="feature-img-container p-3">
+                            <img src="system_context_diagram.png" alt="圖1：系統開發與實施流程圖" class="img-fluid rounded">
+                        </div>
+                        <div class="card-body">
+                            <h5 class="card-title">系統情境架構</h5>
+                            <p class="card-text text-muted small">
+                                展示從資料庫建置、身分驗證到核心功能開發（Create, Read, Update, Delete）的完整實施步驟。
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-6 mb-4">
+                    <div class="card shadow-sm h-100">
+                        <div class="card-header bg-white fw-bold">市場分析與平台特色</div>
+                        <div class="feature-img-container p-3">
+                            <img src="market_analysis.png" alt="圖2：市場分析比較與平台示意" class="img-fluid rounded">
+                        </div>
+                        <div class="card-body">
+                            <h5 class="card-title">功能優勢分析</h5>
+                            <p class="card-text text-muted small">
+                                本平台整合了數位通報與決策支援儀表板，相較於市面一般通報軟體，提供了更完整的案件生命週期管理。
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <section id="features" class="py-5">
+        <div class="container">
+            <h2 class="text-center mb-5">系統核心功能 (CRUD)</h2>
+            <div class="row g-4">
+                
+                <div class="col-md-3">
+                    <div class="p-4 border rounded text-center h-100 bg-white shadow-sm">
+                        <h4 class="text-primary mb-3">📸 Create</h4>
+                        <div class="crud-img-wrapper border">
+                            <img src="create.png" alt="Create 介面截圖" class="img-fluid">
+                        </div>
+                        <h6 class="fw-bold">通報與 AI 模擬</h6>
+                        <p class="small text-muted">使用者上傳照片，系統執行模擬 AI 演算法自動判斷污染物類型（如塑膠、油汙）。</p>
+                    </div>
+                </div>
+
+                <div class="col-md-3">
+                    <div class="p-4 border rounded text-center h-100 bg-white shadow-sm">
+                        <h4 class="text-success mb-3">📊 Read</h4>
+                        <div class="crud-img-wrapper border">
+                            <img src="read.png" alt="Read 介面截圖" class="img-fluid">
+                        </div>
+                        <h6 class="fw-bold">儀表板監測</h6>
+                        <p class="small text-muted">提供視覺化數據儀表板，即時讀取並統計待處理案件與生態監測數據。</p>
+                    </div>
+                </div>
+
+                <div class="col-md-3">
+                    <div class="p-4 border rounded text-center h-100 bg-white shadow-sm">
+                        <h4 class="text-warning mb-3">⚙️ Update</h4>
+                        <div class="crud-img-wrapper border">
+                            <img src="update.png" alt="Update 介面截圖" class="img-fluid">
+                        </div>
+                        <h6 class="fw-bold">調度與更新</h6>
+                        <p class="small text-muted">管理員可更新案件狀態（待處理→派遣中→已結案），實現動態資源調度。</p>
+                    </div>
+                </div>
+
+                <div class="col-md-3">
+                    <div class="p-4 border rounded text-center h-100 bg-white shadow-sm">
+                        <h4 class="text-danger mb-3">🗑️ Delete</h4>
+                        <div class="crud-img-wrapper border">
+                            <img src="delete.png" alt="Delete 介面截圖" class="img-fluid">
+                        </div>
+                        <h6 class="fw-bold">資料維護</h6>
+                        <p class="small text-muted">具備完善的資料刪除機制，確保資料庫的整潔與運作效能。</p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <section id="team" class="bg-dark text-white py-5">
+        <div class="container">
+            <h2 class="text-center mb-4">開發團隊</h2>
+            <div class="text-center mb-5">
+                <h5 class="text-info">指導老師：張珀銀 老師</h5>
+                <p class="text-muted">國立高雄科技大學 海事資訊科技系</p>
+            </div>
+            
+            <div class="row text-center justify-content-center">
+                <div class="col-md-2 mb-3">
+                    <div class="card bg-secondary text-white border-0 h-100">
+                        <div class="card-body">
+                            <h6 class="card-title">黃亭睿 (組長)</h6>
+                            <small class="d-block mt-2">整合 AI 與數據決策平台</small>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-2 mb-3">
+                    <div class="card bg-secondary text-white border-0 h-100">
+                        <div class="card-body">
+                            <h6 class="card-title">何品賢</h6>
+                            <small class="d-block mt-2">海洋污染監測與預測</small>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-2 mb-3">
+                    <div class="card bg-secondary text-white border-0 h-100">
+                        <div class="card-body">
+                            <h6 class="card-title">凌賜桐</h6>
+                            <small class="d-block mt-2">廢棄物清理應變調度</small>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-2 mb-3">
+                    <div class="card bg-secondary text-white border-0 h-100">
+                        <div class="card-body">
+                            <h6 class="card-title">蔡孟洹</h6>
+                            <small class="d-block mt-2">生態影響分析系統</small>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-2 mb-3">
+                    <div class="card bg-secondary text-white border-0 h-100">
+                        <div class="card-body">
+                            <h6 class="card-title">韓丞哲</h6>
+                            <small class="d-block mt-2">生態監測與預測系統</small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="py-4 text-center bg-light border-top">
+        <div class="container">
+            <small class="text-muted">
+                © NKUST Maritime Information Technology - Team 8. <br>
+                資料庫系統與設計期末報告
+            </small>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
